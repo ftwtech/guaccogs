@@ -19,7 +19,7 @@ class Shit:
         guild = message.guild
         channel = message.channel
         author = message.author
-        max = await self.check_guild_emojis(guild, frequency)
+        max = await self.config.guild(guild).frequency()
         randomInt = randint(0, max)
         if message.author.bot:
             return
