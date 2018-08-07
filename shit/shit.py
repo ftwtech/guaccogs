@@ -19,7 +19,8 @@ class Shit:
         guild = message.guild
         channel = message.channel
         author = message.author
-        randomInt = randint(0, 150)
+        max = self.config.guild(guild).frequency.set(frequency)
+        randomInt = randint(0, max)
         if message.author.bot:
             return
         if randomInt == 1:
