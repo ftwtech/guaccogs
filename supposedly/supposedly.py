@@ -22,7 +22,7 @@ class Supposedly:
         if message.author.bot:
             return
         if randomInt == 1:
-            if await self.config.guild(guild).supposedly():
+            if await self.config.guild(guild).enabled():
                 await channel.send("*Supposedly...*")
 
     @commands.command(pass_context=True)
@@ -31,10 +31,10 @@ class Supposedly:
         """on/off"""
         guild = ctx.message.guild
         if not await self.config.guild(guild).supposedly():
-            await self.config.guild(guild).supposedly.set(True)
+            await self.config.guild(guild).enabled.set(True)
             await ctx.send("on")
         else:
-            await self.config.guild(guild).supposedly.set(False)
+            await self.config.guild(guild).enabled.set(False)
             await ctx.send("off")
 
     @commands.command(pass_context=True)
