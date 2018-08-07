@@ -30,7 +30,7 @@ class Supposedly:
     async def supposedlytoggle(self, ctx):
         """on/off"""
         guild = ctx.message.guild
-        if not await self.config.guild(guild).supposedly():
+        if not await self.config.guild(guild).enabled():
             await self.config.guild(guild).enabled.set(True)
             await ctx.send("on")
         else:
