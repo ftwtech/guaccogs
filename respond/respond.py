@@ -15,10 +15,10 @@ class Respond:
         self.config = Config.get_conf(self, 18107945176)
         self.config.register_guild(**default_guild)
 
-    async def on_message(self, message):
-        guild = message.guild
-        channel = message.channel
-        author = message.author
+    async def on_message(self,ctx, message):
+        guild = ctx.message.guild
+        channel = ctx.message.channel
+        author = ctx.message.author
         max = await self.config.guild(guild).frequency()
         randomInt = randint(0, max)
         if message.author.bot:
