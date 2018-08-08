@@ -38,8 +38,6 @@ class Shitpost:
     @commands.group(pass_context=True, invoke_without_command=True)
     async def shitpost(self, ctx):
         """Shitpost for yout momma"""
-        if ctx.invoked_subcommand is None:
-            await ctx.invoke(self.listimages_guild)
                 
     @shitpost.command(pass_context=True)
     @checks.is_owner()
