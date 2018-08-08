@@ -1,5 +1,6 @@
 import discord
 import glob
+from .responses import responses
 from discord.ext import commands
 from redbot.core import Config
 from redbot.core import checks
