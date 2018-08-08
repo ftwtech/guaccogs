@@ -25,8 +25,8 @@ class Shit:
             return
         if randomInt == 1:
             if await self.config.guild(guild).enabled():
-                directory = str(bundled_data_path + "/pics/"(self))
-                files = glob.glob(directory + "/*")
+                directory = str(bundled_data_path(self))
+                files = glob.glob(directory + "/pics/*")
                 file = discord.File(choice(files))
                 await channel.send(file=file)
 
