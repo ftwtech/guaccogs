@@ -9,7 +9,7 @@ class Qtemp:
     async def on_message(self, message):
         guild = message.guild
         channel = message.channel
-        role = "".join(role.mention for role in guild.roles if role.name == "QPOSTS")
+        role = "QPOSTS"
         if "New Q Post!" in message.content.lower():
             await channel.send("{}".format(role.mention))
 def setup(bot):
