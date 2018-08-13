@@ -10,7 +10,7 @@ class AddShit:
 
     @checks.is_owner()
     @commands.command(hidden=True, pass_context=True)
-    async def addshit(self, ctx, cmd):
+    async def addshit(self, ctx):
         """Add an image to direct upload."""
         channel = ctx.message.channel
         msg = ctx.message
