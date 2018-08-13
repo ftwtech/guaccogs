@@ -21,4 +21,3 @@ class AddShit:
             with open(file_path, "wb") as f:
                 f.write(test)
         await ctx.send("added")
-            break
