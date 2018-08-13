@@ -1,6 +1,7 @@
 import os
 import discord
 import asyncio
+import aiohttp
 from discord.ext import commands
 from redbot.core import checks
 
