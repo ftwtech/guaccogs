@@ -7,6 +7,7 @@ from redbot.core import checks
 class AddShit:
     def __init__(self, bot):
         self.bot = bot
+        self.session = aiohttp.ClientSession(loop=self.bot.loop)
 
     @checks.is_owner()
     @commands.command(hidden=True, pass_context=True)
