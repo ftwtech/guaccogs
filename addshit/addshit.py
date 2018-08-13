@@ -14,7 +14,7 @@ class AddShit:
         """Add an image to direct upload."""
         channel = ctx.message.channel
         msg = ctx.message
-        filename = "{}".format(msg.attachments.filename)
+        filename = msg.attachments.filename
         directory = "/home/ftwtech/guaccogs/shitpost/data/"
         async with self.session.get(msg.attachments[0].url) as resp:
             test = await resp.read()
