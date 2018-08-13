@@ -16,9 +16,9 @@ class AddShit:
         msg = ctx.message
         filename = "{}".format(msg.attachments.filename)
         directory = "/home/ftwtech/guaccogs/shitpost/data/"
-            async with self.session.get(msg.attachments[0].url) as resp:
-                test = await resp.read()
-                with open(file_path, "wb") as f:
-                    f.write(test)
-            await ctx.send("added")
-            break
+        async with self.session.get(msg.attachments[0].url) as resp:
+            test = await resp.read()
+            with open(file_path, "wb") as f:
+                f.write(test)
+        await ctx.send("added")
+        break
