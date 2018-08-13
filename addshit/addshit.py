@@ -16,7 +16,7 @@ class AddShit:
         msg = ctx.message
         await ctx.send("Upload an image for me to use, type `exit` to cancel")
         while msg is not None:
-            check = lambda m.attachments != []
+            check = lambda msg.attachments != []
             try:
                 msg = await self.bot.wait_for("message", check=check, timeout=60)
             except asyncio.TimeoutError:
