@@ -13,6 +13,7 @@ class Shitpost:
 
     def __init__(self, bot):
         self.bot = bot
+        self.session = aiohttp.ClientSession(loop=self.bot.loop)
         default_guild = {"enabled":False, "frequency": 100}
         self.config = Config.get_conf(self, 18107945176)
         self.config.register_guild(**default_guild)
