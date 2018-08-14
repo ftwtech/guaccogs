@@ -12,7 +12,7 @@ class Shitpost:
 
     def __init__(self, bot):
         self.bot = bot
-        self.insults = (bundled_data_path + "insults.json")
+        self.insults = (bundled_data_path + "/insults.json")
         self.session = aiohttp.ClientSession(loop=self.bot.loop)
         default_guild = {"enabled":False, "frequency": 100}
         self.config = Config.get_conf(self, 18107945176)
