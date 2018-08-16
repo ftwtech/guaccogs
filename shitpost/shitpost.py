@@ -24,7 +24,7 @@ class Shitpost:
         author = message.author
         msg = ' '
         directory = str(bundled_data_path(self))
-        files = glob.glob(directory + "/*")
+        files = glob.glob(directory + "/pics/*")
         file = discord.File(choice(files))
         max = await self.config.guild(guild).frequency()
         randomInt = randint(0, max)
@@ -51,7 +51,7 @@ class Shitpost:
         msg = ctx.message
         filename = "{}".format(msg.attachments[0].filename)
         directory = str(bundled_data_path(self))
-        file_path = "{}/{}".format(str(directory), filename)
+        file_path = "{}/{}".format(str(directory + "/pics/"), filename)
         async with self.session.get(msg.attachments[0].url) as resp:
             test = await resp.read()
             with open(file_path, "wb") as f:
