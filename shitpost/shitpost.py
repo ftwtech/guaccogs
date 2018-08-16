@@ -1,6 +1,7 @@
 import discord
 import glob
 import aiohttp
+from .responses import responses
 from discord.ext import commands
 from redbot.core import Config
 from redbot.core import checks
@@ -12,7 +13,6 @@ class Shitpost:
 
     def __init__(self, bot):
         self.bot = bot
-        self.insults = (bundled_data_path + "/insults.json")
         self.session = aiohttp.ClientSession(loop=self.bot.loop)
         default_guild = {"enabled":False, "frequency": 100}
         self.config = Config.get_conf(self, 18107945176)
@@ -24,7 +24,7 @@ class Shitpost:
         author = message.author
         msg = ' '
         directory = str(bundled_data_path(self))
-        files = glob.glob(directory + "/pics/*")
+        files = glob.glob(directory + "/*")
         file = discord.File(choice(files))
         max = await self.config.guild(guild).frequency()
         randomInt = randint(0, max)
@@ -33,7 +33,7 @@ class Shitpost:
         if message.author.bot:
             return
         if randomInt == 0:
-            await channel.send(msg + choice(self.insults))
+            await channel.send(msg + choice(responses))
         if randomInt == 1:
             await channel.send(file=file)
 
@@ -51,7 +51,7 @@ class Shitpost:
         msg = ctx.message
         filename = "{}".format(msg.attachments[0].filename)
         directory = str(bundled_data_path(self))
-        file_path = "{}/{}".format(str(directory + "/pics"), filename)
+        file_path = "{}/{}".format(str(directory), filename)
         async with self.session.get(msg.attachments[0].url) as resp:
             test = await resp.read()
             with open(file_path, "wb") as f:
